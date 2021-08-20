@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Pood',
       theme: ThemeData(),
-      initialRoute: RoutePage.getPageName[0],
+      initialRoute: RoutePage.NAVIGATION_ROUTE,
       getPages: RoutePage.getPageList,
     );
   }

@@ -7,10 +7,10 @@ class BaseController extends GetxController {
   late AppRepository appRepository = AppRepository();
 
   RxBool loading = false.obs;
+  // RxInt pc_id = 0.obs;
 
   showToast(String msg) {
     Fluttertoast.showToast(msg: msg);
   }
-
 
 }

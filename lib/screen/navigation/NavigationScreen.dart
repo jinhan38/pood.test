@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:pood/controller/NavigationScreenController.dart';
 import 'package:pood/router/RoutePage.dart';
 import 'package:pood/widgets/base/BaseAppBar.dart';
-import 'package:pood/widgets/base/BaseBodyStateless.dart';
 
 class NavigationScreen extends StatefulWidget {
   const NavigationScreen({Key? key}) : super(key: key);
@@ -29,7 +27,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
           children: [
             ElevatedButton(
                 onPressed: () {
-                  RoutePage.movePage(RoutePage.getPageName[1]);
+                  RoutePage.movePage(RoutePage.HOME_ROUTE);
                   NavigationScreenController.to.showToast("HomeScreen으로 이동");
                 },
                 child: Text("Home으로 이동"))

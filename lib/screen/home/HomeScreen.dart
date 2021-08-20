@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pood/controller/HomeScreenController.dart';
+import 'package:pood/controller/base/BaseController.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -58,4 +59,5 @@ class HomeScreen extends StatelessWidget {
       }
     });
   }
+
 }
