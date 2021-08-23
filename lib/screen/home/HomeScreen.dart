@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pood/controller/HomeScreenController.dart';
-import 'package:pood/controller/base/BaseController.dart';
+import 'package:pood/data/model/coupon/MyCouponList.dart';
+import 'package:pood/data/model/petKindInfo/PetKindInfo.dart';
+import 'package:pood/resource/Urls.dart';
+import 'package:sprintf/sprintf.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends GetView<HomeScreenController> {
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
@@ -21,10 +24,12 @@ class HomeScreen extends StatelessWidget {
   }
 
   List<Widget> bodyWidgets() {
+    List<PetKindInfo> petData = [];
+
     return [
       ElevatedButton(
         onPressed: () {
-          HomeScreenController.to.showToast("HomeScreenController");
+          controller.showToast("HomeScreenController");
         },
         child: Text("토스트 호출"),
       ),
@@ -33,20 +38,40 @@ class HomeScreen extends StatelessWidget {
         padding: const EdgeInsets.all(10.0),
         child: ElevatedButton(
           onPressed: () {
-            HomeScreenController.to.checkServer.value ="";
-            HomeScreenController.to.checkPoodServer();
+            controller.checkServer.value = "";
+            controller.checkPoodServer();
           },
           child: checkServerApi(),
         ),
       ),
+      Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: ElevatedButton(
+          onPressed: () async {
+            await controller.appRepository.homeRepository.getHomeData();
+            var result =
+            await controller.appRepository.userRepository.getMyCouponList();
+          },
+          child: Text("메인 데이터 호출"),
+        ),
+      ),
+      Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: ElevatedButton(
+          onPressed: () async {
+            var result = await controller.appRepository.userRepository.getFriendInviteImage();
+            print("데이터 호출 결과 : $result");
+          },
+          child: Text("데이터 호출"),
+        ),
+      ),
+
     ];
   }
 
-
-
-  Widget checkServerApi(){
+  Widget checkServerApi() {
     return Obx(() {
-      if (HomeScreenController.to.loading.value) {
+      if (controller.loading.value) {
         return CircularProgressIndicator();
       } else {
         if (HomeScreenController.to.checkServer.value == "0") {
@@ -59,5 +84,4 @@ class HomeScreen extends StatelessWidget {
       }
     });
   }
-
 }

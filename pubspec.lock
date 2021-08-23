@@ -372,7 +372,7 @@ packages:
       name: moor
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.4.1"
+    version: "4.5.0"
   moor_generator:
     dependency: "direct dev"
     description:
@@ -559,7 +559,7 @@ packages:
       name: sqlparser
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.17.1"
+    version: "0.17.2"
   stack_trace:
     dependency: transitive
     description:
