@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:pood/data/model/userInfo/UserInfo.dart';
@@ -17,4 +18,11 @@ class BaseController extends GetxController {
   showToast(String msg) {
     Fluttertoast.showToast(msg: msg);
   }
+
+  /// true : light, false : dart
+  changeTheme(bool mode) {
+    Get.changeTheme(mode ? ThemeData.light() : ThemeData.dark());
+  }
+
+
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pood/controller/HomeScreenController.dart';
+import 'package:pood/controller/base/BaseController.dart';
 import 'package:pood/data/model/coupon/MyCouponList.dart';
 import 'package:pood/data/model/petKindInfo/PetKindInfo.dart';
 import 'package:pood/resource/Urls.dart';
@@ -24,7 +25,7 @@ class HomeScreen extends GetView<HomeScreenController> {
   }
 
   List<Widget> bodyWidgets() {
-    List<PetKindInfo> petData = [];
+    var themeMode = true;
 
     return [
       ElevatedButton(
@@ -50,7 +51,7 @@ class HomeScreen extends GetView<HomeScreenController> {
           onPressed: () async {
             await controller.appRepository.homeRepository.getHomeData();
             var result =
-                await controller.appRepository.userRepository.getMyCouponList();
+            await controller.appRepository.userRepository.getMyCouponList();
           },
           child: Text("메인 데이터 호출"),
         ),
@@ -59,16 +60,37 @@ class HomeScreen extends GetView<HomeScreenController> {
         padding: const EdgeInsets.all(10.0),
         child: ElevatedButton(
           onPressed: () async {
-            // var result = await controller.appRepository.userRepository.getFriendInviteImage();
+            controller.loading.value = true;
             var result = await controller.appRepository.commonRepository
                 .searchGoodsListByKeyword(1, "고스");
+            Future.delayed(Duration(seconds: 2));
+            controller.loading.value = false;
             print("데이터 호출 결과 : $result");
           },
           child: Text("데이터 호출"),
         ),
       ),
+
+      ElevatedButton(onPressed: () {
+        themeMode = !themeMode;
+        BaseController.to.changeTheme(themeMode);
+      },
+          child: Text("테마 체인지")),
     ];
   }
+
+
+  Widget apiTextWidget() {
+    return Obx(() {
+      if (controller.loading.value) {
+        return CircularProgressIndicator();
+      }
+      else {
+        return Text("데이터 호출 완료");
+      }
+    });
+  }
+
 
   Widget checkServerApi() {
     return Obx(() {
