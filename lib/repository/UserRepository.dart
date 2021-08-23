@@ -28,12 +28,9 @@ class UserRepository extends BaseRepository {
     }
   }
 
-  Future<String> getFriendInviteImage() async{
+  Future<String> getFriendInviteImage() async {
     var response = await dio.get(Urls.FRIEND_INVITE_IMAGE);
-    return response.data[Params.RESULT][Params.URL];
+    print("response response responseresponseresponse: $response");
+    return (response.data[Params.RESULT])[0][Params.URL];
   }
-
-  
-
-
 }
