@@ -1,0 +1,80 @@
+
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+part 'PoodProductFeed.freezed.dart';
+part 'PoodProductFeed.g.dart';
+
+@freezed
+class PoodProductFeed with _$PoodProductFeed {
+  factory PoodProductFeed.fromJson(Map<String, dynamic> json) =>
+      _$PoodProductFeedFromJson(json);
+
+  factory PoodProductFeed({
+    double? am_cystine,
+    double? fa_epa, //EPA + DHA
+    double? am_leucine,
+    double? ot_glucosamine,
+    String? feed_name,
+    double? fa_a_linoleicacid,
+    double? ot_taurine,
+    double? pr_fiber,
+    double? am_threonine,
+    double? vi_vitamin_b12,
+    double? mi_ca_ph,
+    double? fa_linoleicacid,
+    double? pr_ash,
+    double? vi_vitamin_a,
+    double? vi_vitamin_d,
+    double? am_l_carnitine,
+    double? mi_iron,
+    double? vi_vitamin_c,
+    double? vi_vitamin_e,
+    double? am_methionine,
+    double? am_met_cys,
+    double? am_valine,
+    double? mi_copper,
+    double? am_tryptophan,
+    double? idx,
+    double? mi_calcium,
+    double? ot_chondroitin,
+    double? mi_zinc,
+    double? vi_vitamin_b3,
+    double? vi_vitamin_b2,
+    double? mi_iodine,
+    double? vi_vitamin_b1,
+    double? am_tyrosine,
+    double? vi_vitamin_b7,
+    double? vi_vitamin_b6,
+    double? am_isoleucine,
+    double? vi_vitamin_b5,
+    double? fa_dha,
+    double? fa_arachidonic_acid,
+    double? mi_sodium,
+    double? pr_fat,
+    double? pr_moisture,
+    double? mi_selenium,
+    double? am_arginine,
+    double? ot_msm,
+    double? am_phenylanlanine,
+    double? vi_vitamin_b9,
+    double? am_phe_tyr,
+    double? am_histidine,
+    double? fa_omega6_3,
+    double? pr_carbo,
+    double? am_lysine,
+    double? fa_omega6,
+    double? fa_omega3,
+    double? vi_vitamin_k3,
+    double? product_idx,
+    double? mi_phosphours,
+    double? vi_Choline,
+    // double? am_glutamic_acid,
+    String? ot_probiotics,
+    double? mi_magnessium,
+    double? mi_manganese,
+    double? pr_protein,
+    double? mi_potassium,
+    double? fa_a_llinolenic_acid,
+    double? mi_chloride,
+  }) = _PoodProductFeed;
+}

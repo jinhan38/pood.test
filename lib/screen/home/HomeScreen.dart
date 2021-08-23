@@ -50,7 +50,7 @@ class HomeScreen extends GetView<HomeScreenController> {
           onPressed: () async {
             await controller.appRepository.homeRepository.getHomeData();
             var result =
-            await controller.appRepository.userRepository.getMyCouponList();
+                await controller.appRepository.userRepository.getMyCouponList();
           },
           child: Text("메인 데이터 호출"),
         ),
@@ -59,13 +59,14 @@ class HomeScreen extends GetView<HomeScreenController> {
         padding: const EdgeInsets.all(10.0),
         child: ElevatedButton(
           onPressed: () async {
-            var result = await controller.appRepository.userRepository.getFriendInviteImage();
+            // var result = await controller.appRepository.userRepository.getFriendInviteImage();
+            var result = await controller.appRepository.commonRepository
+                .searchGoodsListByKeyword(1, "고스");
             print("데이터 호출 결과 : $result");
           },
           child: Text("데이터 호출"),
         ),
       ),
-
     ];
   }
 

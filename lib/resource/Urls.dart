@@ -38,4 +38,9 @@ class Urls {
   static const PAYMENT_TYPE = "pood/admin/payment/type/2";
 
 
+  /// 검색어 자동완성
+  static const SEARCH_KEYWORD = "pood/order/goods/2/3";
+  static const SEARCH_GOODS_LIST = "pood/order/goods/2/1/1";
+
+
 }
