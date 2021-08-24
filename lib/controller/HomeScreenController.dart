@@ -11,8 +11,6 @@ class HomeScreenController extends BaseController
   var lc = LoadingControl();
 
   RxBool loaded = false.obs;
-  RxBool error = false.obs;
-  RxString errorMsg = "".obs;
 
   checkPoodServer() async {
     await appRepository.commonRepository.checkServer();
@@ -33,10 +31,10 @@ class HomeScreenController extends BaseController
       await appRepository.commonRepository.searchKeyword(1, "고스");
       lc.updateWorkCount();
       loaded.value = lc.checkWorkComplete();
+      // throw Exception("에러팝업 테스트 ");
       print("futureDataControl work complete : ${loaded.value}");
     } catch (e) {
-      error.value = true;
-      errorMsg.value = e.toString();
+      showErrorDialog(e.toString());
       print("futureDataControl error : $e");
     }
   }

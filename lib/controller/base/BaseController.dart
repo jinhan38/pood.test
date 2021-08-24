@@ -9,9 +9,14 @@ class BaseController extends GetxController {
 
   late AppRepository appRepository = AppRepository();
 
-  late UserInfo? userInfo;
+  // late UserInfo? userInfo;
+  UserInfo userInfo =
+      UserInfo(user_uuid: "b8832efb-80bc-474d-8a98-2b09c509fcba");
 
   RxInt pc_id = 0.obs;
+
+  RxBool error = false.obs;
+  RxString errorMsg = "".obs;
 
   showToast(String msg) {
     Fluttertoast.showToast(msg: msg);
@@ -22,4 +27,8 @@ class BaseController extends GetxController {
     Get.changeTheme(mode ? ThemeData.light() : ThemeData.dark());
   }
 
+  showErrorDialog(String msg) {
+    showToast("에러 팝업 호출 : $msg");
+    Get.back();
+  }
 }

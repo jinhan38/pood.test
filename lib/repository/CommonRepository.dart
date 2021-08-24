@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:pood/data/model/goods/GoodsModel.dart';
+import 'package:pood/data/model/notice/Notice.dart';
 import 'package:pood/data/model/petKindInfo/PetKindInfo.dart';
 import 'package:pood/resource/Params.dart';
 import 'package:pood/resource/StatusCode.dart';
@@ -39,6 +40,7 @@ class CommonRepository extends BaseRepository {
     }
   }
 
+  ///키워드 검색
   Future<List<String>> searchKeyword(int pc_idx, String keyword) async {
     var response = await dio.post(Urls.SEARCH_KEYWORD,
         data: {Params.PC_IDX: pc_idx, Params.KEYWORD: keyword});
@@ -52,6 +54,7 @@ class CommonRepository extends BaseRepository {
     }
   }
 
+  ///검색한 키워드로 굿즈정보 불러오기
   Future<List<GoodsModel>> searchGoodsListByKeyword(
       int pc_idx, String keyword) async {
     var response = await dio.post(Urls.SEARCH_GOODS_LIST,
@@ -64,4 +67,20 @@ class CommonRepository extends BaseRepository {
       throw Exception(response.data[Params.MSG]);
     }
   }
+
+  ///공지사항 데이터
+  Future<List<Notice>> getNoticeData() async {
+    var response = await dio.get(Urls.NOTICE_URL);
+    print("공지사항 데이터 : $response");
+    if (Params.resultCheck(response)) {
+      return response.data[Params.RESULT]
+          .map<Notice>((json) => Notice.fromJson(json))
+          .toList();
+    } else {
+      throw Exception(response.data[Params.MSG]);
+    }
+  }
+
+
+
 }

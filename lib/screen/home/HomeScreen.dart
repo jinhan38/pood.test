@@ -42,6 +42,12 @@ class HomeScreen extends GetView<HomeScreenController> {
             BaseController.to.changeTheme(themeMode);
           },
           child: Text("테마 체인지")),
+      ElevatedButton(
+          onPressed: () {
+            var response = controller.appRepository.cartRepository.getCartInfoList();
+            print("test response : $response");
+          },
+          child: Text("Test 버튼")),
     ];
   }
 
