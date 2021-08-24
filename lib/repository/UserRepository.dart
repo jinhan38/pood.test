@@ -1,8 +1,10 @@
+import 'package:flutter/rendering.dart';
 import 'package:pood/data/model/coupon/MyCouponList.dart';
 import 'package:pood/data/model/friendInvite/FriendInviteInfo.dart';
 import 'package:pood/resource/Params.dart';
 import 'package:pood/resource/StatusCode.dart';
 import 'package:pood/resource/Urls.dart';
+import 'package:pood/util/errorStatus/ErrorStatus.dart';
 import 'package:sprintf/sprintf.dart';
 import 'base/BaseRepository.dart';
 
@@ -21,7 +23,7 @@ class UserRepository extends BaseRepository {
           .map<MyCouponList>((json) => MyCouponList.fromJson(json))
           .toList();
     } else{
-      return [];
+      throw Exception(response.data[Params.MSG]);
     }
   }
 
@@ -32,7 +34,8 @@ class UserRepository extends BaseRepository {
     if (Params.resultCheck(response)) {
       return FriendInviteInfo.fromJson(response.data[Params.RESULT]);
     } else {
-      return FriendInviteInfo();
+      throw Exception("getFriendInviteInfo");
+      // throw Exception(response.data[Params.MSG]);
     }
   }
 
@@ -41,7 +44,7 @@ class UserRepository extends BaseRepository {
     if (Params.resultCheck(response)) {
       return (response.data[Params.RESULT])[0][Params.URL];
     } else {
-      return "";
+      throw Exception(response.data[Params.MSG]);
     }
   }
 }

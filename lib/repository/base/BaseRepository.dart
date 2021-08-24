@@ -11,7 +11,7 @@ abstract class BaseRepository {
       connectTimeout: 10000,
       receiveTimeout: 3000,
       headers: {
-        Params.headerToken: "23162efc-994c-4b1f-b3df-5d47498bf862",
+        Params.headerToken: Strings.masterToken,
         Params.headerUuid: "b8832efb-80bc-474d-8a98-2b09c509fcba"
       }));
 

@@ -11,8 +11,6 @@ class BaseController extends GetxController {
 
   late UserInfo? userInfo;
 
-  RxBool loading = false.obs;
-
   RxInt pc_id = 0.obs;
 
   showToast(String msg) {
@@ -23,6 +21,5 @@ class BaseController extends GetxController {
   changeTheme(bool mode) {
     Get.changeTheme(mode ? ThemeData.light() : ThemeData.dark());
   }
-
 
 }

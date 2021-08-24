@@ -4,6 +4,7 @@ import 'package:pood/data/model/petKindInfo/PetKindInfo.dart';
 import 'package:pood/resource/Params.dart';
 import 'package:pood/resource/StatusCode.dart';
 import 'package:pood/resource/Urls.dart';
+import 'package:pood/util/errorStatus/ErrorStatus.dart';
 
 import 'base/BaseRepository.dart';
 
@@ -34,33 +35,33 @@ class CommonRepository extends BaseRepository {
           .map<PetKindInfo>((json) => PetKindInfo.fromJson(json))
           .toList();
     } else {
-      return [];
+      throw Exception(response.data[Params.MSG]);
     }
   }
 
   Future<List<String>> searchKeyword(int pc_idx, String keyword) async {
     var response = await dio.post(Urls.SEARCH_KEYWORD,
         data: {Params.PC_IDX: pc_idx, Params.KEYWORD: keyword});
+
     if (Params.resultCheck(response)) {
       List<String> result = [];
       result.addAll(response.data[Params.RESULT].cast<String>());
       return result;
     } else {
-      return [];
+      throw Exception(response.data[Params.MSG]);
     }
   }
 
-  Future<List<GoodsModel>> searchGoodsListByKeyword(int pc_idx, String keyword) async {
+  Future<List<GoodsModel>> searchGoodsListByKeyword(
+      int pc_idx, String keyword) async {
     var response = await dio.post(Urls.SEARCH_GOODS_LIST,
         data: {Params.PC_IDX: pc_idx, Params.KEYWORD: keyword});
-    print("굿즈 리스트 데이터 : $response");
     if (Params.resultCheck(response)) {
-      return response.data[Params.RESULT].map<GoodsModel>((json)=> GoodsModel.fromJson(json)).toList();
-    } else{
-      return [];
+      return response.data[Params.RESULT]
+          .map<GoodsModel>((json) => GoodsModel.fromJson(json))
+          .toList();
+    } else {
+      throw Exception(response.data[Params.MSG]);
     }
-
   }
-
-
 }

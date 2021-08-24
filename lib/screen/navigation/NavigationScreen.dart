@@ -28,7 +28,6 @@ class _NavigationScreenState extends State<NavigationScreen> {
             ElevatedButton(
                 onPressed: () {
                   RoutePage.movePage(RoutePage.HOME_ROUTE);
-                  NavigationScreenController.to.showToast("HomeScreen으로 이동");
                 },
                 child: Text("Home으로 이동"))
           ],

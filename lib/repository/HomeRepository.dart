@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:pood/resource/Params.dart';
 import 'package:pood/resource/Strings.dart';
 import 'package:pood/resource/Urls.dart';
+import 'package:pood/util/errorStatus/ErrorStatus.dart';
 import 'package:sprintf/sprintf.dart';
 
 import 'base/BaseRepository.dart';
@@ -14,8 +15,7 @@ class HomeRepository extends BaseRepository {
     if(Params.resultCheck(response)){
 
     } else{
-
+      throw Exception(response.data[Params.MSG]);
     }
-    print("홈 데이터 : $response");
   }
 }
