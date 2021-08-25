@@ -24,11 +24,10 @@ class HomeScreen extends GetView<HomeScreenController> {
     var themeMode = true;
 
     return [
-
       Padding(
         padding: const EdgeInsets.all(10.0),
-        child: ElevatedButton (
-          onPressed: () async{
+        child: ElevatedButton(
+          onPressed: () async {
             await controller.futureDataControl(4);
           },
           child: Text("api 테스트 실시"),
@@ -44,10 +43,76 @@ class HomeScreen extends GetView<HomeScreenController> {
           child: Text("테마 체인지")),
       ElevatedButton(
           onPressed: () {
-            var response = controller.appRepository.cartRepository.getCartInfoList();
+            var response =
+                controller.appRepository.cartRepository.getCartInfoList();
             print("test response : $response");
           },
           child: Text("Test 버튼")),
+      ElevatedButton(
+          onPressed: () {
+            BaseController.to.customSnackBar.showSnackBar("스낵바", "호출 성공");
+          },
+          child: Text("스낵바")),
+      ElevatedButton(
+          onPressed: () {
+            BaseController.to.customDialog
+                .showDialogText(title: "다이얼로그", msg: "텍스트 호출");
+          },
+          child: Text("다이얼로그 1")),
+      ElevatedButton(
+          onPressed: () {
+            BaseController.to.customDialog.showDialogButtonOk(
+                title: "다이얼로그",
+                msg: "버튼 한개",
+                ok: () {
+                  BaseController.to.customSnackBar.showSnackBar("다이얼로그", "버튼 한개");
+                });
+          },
+          child: Text("다이얼로그 2")),
+      ElevatedButton(
+          onPressed: () {
+            BaseController.to.customDialog.showDialogButtonOkCancel(
+                title: "다이얼로그",
+                msg: "버튼 두개",
+                ok: () {
+                  BaseController.to.customSnackBar.showSnackBar("다이얼로그", "OK 클릭");
+                },
+                cancel: () {
+                  BaseController.to.customSnackBar.showSnackBar("다이얼로그", "Cancel 클릭");
+                });
+          },
+          child: Text("다이얼로그 3")),
+      ElevatedButton(
+          onPressed: () {
+            BaseController.to.customDialog.showDialogButtonError(
+                title: "다이얼로그",
+                msg: "에러 호출",
+                ok: () {
+                  Get.back();
+                  BaseController.to.customSnackBar.showSnackBar("다이얼로그", "에러 클릭");
+                });
+          },
+          child: Text("다이얼로그 error")),
+      ElevatedButton(
+          onPressed: () {
+            BaseController.to.customDialog.showDialogButtonError(
+                title: "다이얼로그",
+                msg: "에러 호출",
+                ok: () {
+                  Get.back();
+                  BaseController.to.customSnackBar.showSnackBar("다이얼로그", "에러 클릭");
+                });
+          },
+          child: Text("BottomSheet")),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          ElevatedButton(onPressed: (){
+            BaseController.to.customBottomSheet.showBottomText("바텀시트", "에러");
+          }, child: Text("바텀 1")),
+
+        ],
+      )
     ];
   }
 

@@ -3,6 +3,9 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:pood/data/model/userInfo/UserInfo.dart';
 import 'package:pood/repository/AppRepository.dart';
+import 'package:pood/util/CustomBottomSheet.dart';
+import 'package:pood/util/CustomDialog.dart';
+import 'package:pood/util/CustomSnackBar.dart';
 
 class BaseController extends GetxController {
   static BaseController get to => Get.find();
@@ -18,6 +21,10 @@ class BaseController extends GetxController {
   RxBool error = false.obs;
   RxString errorMsg = "".obs;
 
+  var customDialog = CustomDialog();
+  var customBottomSheet = CustomBottomSheet();
+  var customSnackBar = CustomSnackBar();
+
   showToast(String msg) {
     Fluttertoast.showToast(msg: msg);
   }
@@ -27,8 +34,5 @@ class BaseController extends GetxController {
     Get.changeTheme(mode ? ThemeData.light() : ThemeData.dark());
   }
 
-  showErrorDialog(String msg) {
-    showToast("에러 팝업 호출 : $msg");
-    Get.back();
-  }
+
 }

@@ -34,7 +34,6 @@ class HomeScreenController extends BaseController
       // throw Exception("에러팝업 테스트 ");
       print("futureDataControl work complete : ${loaded.value}");
     } catch (e) {
-      showErrorDialog(e.toString());
       print("futureDataControl error : $e");
     }
   }
