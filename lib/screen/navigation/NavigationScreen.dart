@@ -29,7 +29,12 @@ class _NavigationScreenState extends State<NavigationScreen> {
                 onPressed: () {
                   RoutePage.movePage(RoutePage.HOME_ROUTE);
                 },
-                child: Text("Home으로 이동"))
+                child: Text("Home으로 이동")),
+            ElevatedButton(
+                onPressed: () {
+                  RoutePage.movePage(RoutePage.COFFEE);
+                },
+                child: Text("Animation")),
           ],
         ),
       ),
