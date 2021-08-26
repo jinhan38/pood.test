@@ -10,11 +10,11 @@ import 'base/BaseRepository.dart';
 class HomeRepository extends BaseRepository {
 
   Future<void> getHomeData() async {
-    print("홈 데이터 base url: ${dio.options.baseUrl}");
-    var response = await dio.get(Urls.BASE_URL+sprintf(Urls.HOME_MAIN, [1]));
-    if(Params.resultCheck(response)){
+    var response = await dio.get(sprintf(Urls.HOME_MAIN, [1]));
+    print("responseresponseresponseresponseresponseresponse : $response");
+    if (Params.resultCheck(response)) {
 
-    } else{
+    } else {
       throw Exception(response.data[Params.MSG]);
     }
   }

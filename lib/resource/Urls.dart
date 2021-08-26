@@ -1,8 +1,19 @@
 class Urls {
+  static const isDebug = false;
   static const PAGE_SIZE = 50;
 
   static const BASE_URL = "https://poodone.com/";
-  static const BASE_URL_TEST = "https://test.pood.pet/";
+  // static const BASE_URL = "https://test.pood.pet/";
+
+
+
+  static String getBaseUrl() {
+    if (isDebug) {
+      return "https://test.pood.pet/";
+    } else {
+      return "https://poodone.com/";
+    }
+  }
 
   ///Intro
   static const CHECK_SERVER_URL = "https://poodone.com/load.json"; //서버점검 체크
@@ -40,5 +51,16 @@ class Urls {
   static const SEARCH_GOODS_LIST = "pood/order/goods/2/1/1";
 
   ///장바구니
-  static const CART_INFO_LIST = "pood/user/basket/2?user_uuid=%s";
+  static const CART_INFO_LIST = "pood/user/basket/2?user_uuid=%s"; //장바구니 리스트
+  static const CART_ADD = "pood/user/basket/1"; //장바구니 추가
+  static const CART_DELETE = "pood/user/basket/3"; //장바구니 삭제
+  static const CART_QUANTITY_MODIFY = "pood/user/basket/4";  //장바구니 수량 수정
+
+  ///바로구매 취소
+  static const CANCEL_BUY_NOW = "pood/payment/cancel/buy-now/1?basket_idx=%s";
+
+
+  ///굿즈
+  static const GOODS_DATA = "pood/order/goods/2/1/1";
+
 }

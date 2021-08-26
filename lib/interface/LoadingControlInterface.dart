@@ -1,11 +1,5 @@
-
-
-
-
 abstract class LoadingControlInterface{
 
-
-  Future<void> futureDataControl(int work) async{}
-
+  Future<void> futureDataControl() async{}
 
 }

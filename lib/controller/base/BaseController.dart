@@ -12,7 +12,6 @@ class BaseController extends GetxController {
 
   late AppRepository appRepository = AppRepository();
 
-  // late UserInfo? userInfo;
   UserInfo userInfo =
       UserInfo(user_uuid: "b8832efb-80bc-474d-8a98-2b09c509fcba");
 

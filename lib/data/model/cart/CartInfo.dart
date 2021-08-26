@@ -1,9 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:pood/data/model/goods/GoodsModel.dart';
 
-part 'CartList.freezed.dart';
-
-part 'CartList.g.dart';
+part 'CartInfo.freezed.dart';
+part 'CartInfo.g.dart';
 
 @freezed
 class CartInfo with _$CartInfo {

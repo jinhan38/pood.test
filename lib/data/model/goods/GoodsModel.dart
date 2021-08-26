@@ -12,8 +12,8 @@ part 'GoodsModel.freezed.dart';
 @freezed
 class GoodsModel with _$GoodsModel {
   factory GoodsModel({
-    int?
-        coupon_apply, //coupon_apply = 0 : 쿠폰 적용 가능, 1 : 쿠폰 적용 불가능, 쿠폰 적용가능한 제품인지 아닌지 체큰
+    //coupon_apply = 0 : 쿠폰 적용 가능, 1 : 쿠폰 적용 불가능, 쿠폰 적용가능한 제품인지 아닌지 체크
+    int? coupon_apply,
     List<ProductModel>? product,
     List<GoodsImage>? main_image,
     List<GoodsImage>? goods_image,

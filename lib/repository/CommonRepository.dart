@@ -1,11 +1,8 @@
-import 'package:dio/dio.dart';
 import 'package:pood/data/model/goods/GoodsModel.dart';
 import 'package:pood/data/model/notice/Notice.dart';
 import 'package:pood/data/model/petKindInfo/PetKindInfo.dart';
 import 'package:pood/resource/Params.dart';
-import 'package:pood/resource/StatusCode.dart';
 import 'package:pood/resource/Urls.dart';
-import 'package:pood/util/errorStatus/ErrorStatus.dart';
 
 import 'base/BaseRepository.dart';
 
@@ -44,7 +41,6 @@ class CommonRepository extends BaseRepository {
   Future<List<String>> searchKeyword(int pc_idx, String keyword) async {
     var response = await dio.post(Urls.SEARCH_KEYWORD,
         data: {Params.PC_IDX: pc_idx, Params.KEYWORD: keyword});
-
     if (Params.resultCheck(response)) {
       List<String> result = [];
       result.addAll(response.data[Params.RESULT].cast<String>());
@@ -71,7 +67,6 @@ class CommonRepository extends BaseRepository {
   ///공지사항 데이터
   Future<List<Notice>> getNoticeData() async {
     var response = await dio.get(Urls.NOTICE_URL);
-    print("공지사항 데이터 : $response");
     if (Params.resultCheck(response)) {
       return response.data[Params.RESULT]
           .map<Notice>((json) => Notice.fromJson(json))
@@ -80,6 +75,10 @@ class CommonRepository extends BaseRepository {
       throw Exception(response.data[Params.MSG]);
     }
   }
+
+
+
+
 
 
 

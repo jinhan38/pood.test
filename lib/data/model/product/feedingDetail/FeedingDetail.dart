@@ -6,7 +6,6 @@ part 'FeedingDetail.freezed.dart';
 
 @freezed
 class FeedingDetail with _$FeedingDetail {
-
   factory FeedingDetail.fromJson(Map<String, dynamic> json) =>
       _$FeedingDetailFromJson(json);
 

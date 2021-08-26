@@ -33,6 +33,7 @@ class UserRepository extends BaseRepository {
     }
   }
 
+  ///친구초대화면 이미지 불러오기
   Future<String> getFriendInviteImage() async {
     var response = await dio.get(Urls.FRIEND_INVITE_IMAGE);
     if (Params.resultCheck(response)) {
@@ -41,4 +42,5 @@ class UserRepository extends BaseRepository {
       throw Exception(response.data[Params.MSG]);
     }
   }
+
 }

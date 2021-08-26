@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:pood/controller/HomeScreenController.dart';
 import 'package:pood/controller/base/BaseController.dart';
 
+
+
 class HomeScreen extends GetView<HomeScreenController> {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -28,7 +30,7 @@ class HomeScreen extends GetView<HomeScreenController> {
         padding: const EdgeInsets.all(10.0),
         child: ElevatedButton(
           onPressed: () async {
-            await controller.futureDataControl(4);
+            await controller.futureDataControl();
           },
           child: Text("api 테스트 실시"),
         ),

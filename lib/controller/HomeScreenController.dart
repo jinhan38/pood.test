@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:pood/controller/base/LoadingControl.dart';
+import 'package:pood/data/model/cart/cartAddInfo/CartAddInfo.dart';
 import 'package:pood/interface/LoadingControlInterface.dart';
 
 import 'base/BaseController.dart';
@@ -17,12 +18,12 @@ class HomeScreenController extends BaseController
   }
 
   @override
-  Future<void> futureDataControl(int work) async {
+  Future<void> futureDataControl() async {
     try {
       loaded.value = false;
-      lc.workCompleteCount = work;
+      lc.workCompleteCount = 4;
       lc.currentCount = 0;
-      await appRepository.commonRepository.checkServer();
+      await appRepository.goodsRepository.getGoodsDetail(918);
       lc.updateWorkCount();
       await appRepository.userRepository.getMyCouponList();
       lc.updateWorkCount();
@@ -31,7 +32,6 @@ class HomeScreenController extends BaseController
       await appRepository.commonRepository.searchKeyword(1, "고스");
       lc.updateWorkCount();
       loaded.value = lc.checkWorkComplete();
-      // throw Exception("에러팝업 테스트 ");
       print("futureDataControl work complete : ${loaded.value}");
     } catch (e) {
       print("futureDataControl error : $e");
