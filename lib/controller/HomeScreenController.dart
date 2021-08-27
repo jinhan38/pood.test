@@ -23,7 +23,9 @@ class HomeScreenController extends BaseController
       loaded.value = false;
       lc.workCompleteCount = 4;
       lc.currentCount = 0;
-      await appRepository.goodsRepository.getGoodsDetail(918);
+      var testData = await appRepository.goodsRepository.addReviewDelete([151]);
+      print("testData : $testData");
+
       lc.updateWorkCount();
       await appRepository.userRepository.getMyCouponList();
       lc.updateWorkCount();

@@ -1,8 +1,10 @@
+import 'package:pood/data/model/event/EventInfo.dart';
 import 'package:pood/data/model/goods/GoodsModel.dart';
 import 'package:pood/data/model/notice/Notice.dart';
 import 'package:pood/data/model/petKindInfo/PetKindInfo.dart';
 import 'package:pood/resource/Params.dart';
 import 'package:pood/resource/Urls.dart';
+import 'package:sprintf/sprintf.dart';
 
 import 'base/BaseRepository.dart';
 
@@ -76,9 +78,19 @@ class CommonRepository extends BaseRepository {
     }
   }
 
-
-
-
+  ///이벤트 상세
+  Future<List<Notice>> getEventDetail(int idx) async {
+    var response = await dio.get(sprintf(Urls.EVENT_DETAIL, [idx]));
+    print(
+        "responseresponseresponseresponseresponseresponseresponse : $response");
+    if (Params.resultCheck(response)) {
+      return response.data[Params.RESULT]
+          .map<EventInfo>((json) => EventInfo.fromJson(json))
+          .toList();
+    } else {
+      throw Exception(response.data[Params.MSG]);
+    }
+  }
 
 
 

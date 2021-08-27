@@ -1,11 +1,12 @@
+import 'Params.dart';
+
 class Urls {
   static const isDebug = false;
   static const PAGE_SIZE = 50;
 
   static const BASE_URL = "https://poodone.com/";
+
   // static const BASE_URL = "https://test.pood.pet/";
-
-
 
   static String getBaseUrl() {
     if (isDebug) {
@@ -36,10 +37,10 @@ class Urls {
   static const PET_IMAGE_UPLOAD = "pood/user/pet/image/1";
 
   ///MY COUPON LIST
-  static const MY_COUPON_LIST = "pood/user/coupon/2?user_uuid=%s";
+  static const MY_COUPON_LIST = "pood/user/coupon/2?${Params.USER_UUID}=%s";
 
   ///Friend invite info
-  static const FRIEND_INVITE_INFO = "pood/user/2/3?user_uuid=%s";
+  static const FRIEND_INVITE_INFO = "pood/user/2/3?${Params.USER_UUID}=%s";
   static const FRIEND_INVITE_IMAGE = "pood/admin/pood-image/2?idx=7";
 
   /// payment
@@ -51,16 +52,34 @@ class Urls {
   static const SEARCH_GOODS_LIST = "pood/order/goods/2/1/1";
 
   ///장바구니
-  static const CART_INFO_LIST = "pood/user/basket/2?user_uuid=%s"; //장바구니 리스트
+  static const CART_INFO_LIST = "pood/user/basket/2?${Params.USER_UUID}=%s"; //장바구니 리스트
   static const CART_ADD = "pood/user/basket/1"; //장바구니 추가
   static const CART_DELETE = "pood/user/basket/3"; //장바구니 삭제
-  static const CART_QUANTITY_MODIFY = "pood/user/basket/4";  //장바구니 수량 수정
+  static const CART_QUANTITY_MODIFY = "pood/user/basket/4"; //장바구니 수량 수정
 
   ///바로구매 취소
   static const CANCEL_BUY_NOW = "pood/payment/cancel/buy-now/1?basket_idx=%s";
 
-
   ///굿즈
   static const GOODS_DATA = "pood/order/goods/2/1/1";
+
+  ///이벤트
+  static const EVENT_DETAIL = "pood/event-detail/2?idx=%d";
+
+  ///찜하기
+  static const CHECK_FAVORITE = "pood/user/wish/2"; //찜했는지 확인
+  static const ADD_FAVORITE = "pood/user/wish/1"; //찜 추가
+  static const DELETE_FAVORITE = "pood/user/wish/3"; //찜 삭제
+  static const FAVORITE_LIST = "pood/user/wish/2/1?${Params.USER_UUID}=%s"; //찜한 굿즈 목록
+
+  ///브랜드
+  static const BRAND_DETAIL_INFO = "pood/admin/brand/2?idx=%s"; //브랜드 상세 정보
+
+
+  ///리뷰
+  static const GOODS_REVIEW_COUNT = "pood/user/review/2/3?${Params.PRODUCT_IDX}=%s";
+  static const GOODS_REVIEW_LIST = "pood/user/review/2/2?${Params.PRODUCT_IDX}=%s&${Params.RECORD_BIRTH}=%s&${Params.PAGE_SIZE}=40&${Params.PAGE_NUMBER}=%s&${Params.USER_UUID}=%s";
+  static const GOODS_REVIEW_CLAP_ADD = "pood/user/review/clap/1";
+  static const GOODS_REVIEW_CLAP_DELETE = "pood/user/review/clap/3";
 
 }

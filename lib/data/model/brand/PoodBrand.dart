@@ -12,7 +12,7 @@ class PoodBrand with _$PoodBrand {
 
   factory PoodBrand({
     String? brand_phone,
-    GoodsImage? image,
+    List<GoodsImage>? image,
     String? recordbirth,
     String? brand_intro,
     String? brand_origin,

@@ -9,9 +9,9 @@ part of 'PoodBrand.dart';
 _$_PoodBrand _$_$_PoodBrandFromJson(Map<String, dynamic> json) {
   return _$_PoodBrand(
     brand_phone: json['brand_phone'] as String?,
-    image: json['image'] == null
-        ? null
-        : GoodsImage.fromJson(json['image'] as Map<String, dynamic>),
+    image: (json['image'] as List<dynamic>?)
+        ?.map((e) => GoodsImage.fromJson(e as Map<String, dynamic>))
+        .toList(),
     recordbirth: json['recordbirth'] as String?,
     brand_intro: json['brand_intro'] as String?,
     brand_origin: json['brand_origin'] as String?,

@@ -22,7 +22,7 @@ class _$PoodBrandTearOff {
 
   _PoodBrand call(
       {String? brand_phone,
-      GoodsImage? image,
+      List<GoodsImage>? image,
       String? recordbirth,
       String? brand_intro,
       String? brand_origin,
@@ -68,7 +68,7 @@ const $PoodBrand = _$PoodBrandTearOff();
 /// @nodoc
 mixin _$PoodBrand {
   String? get brand_phone => throw _privateConstructorUsedError;
-  GoodsImage? get image => throw _privateConstructorUsedError;
+  List<GoodsImage>? get image => throw _privateConstructorUsedError;
   String? get recordbirth => throw _privateConstructorUsedError;
   String? get brand_intro => throw _privateConstructorUsedError;
   String? get brand_origin => throw _privateConstructorUsedError;
@@ -96,7 +96,7 @@ abstract class $PoodBrandCopyWith<$Res> {
       _$PoodBrandCopyWithImpl<$Res>;
   $Res call(
       {String? brand_phone,
-      GoodsImage? image,
+      List<GoodsImage>? image,
       String? recordbirth,
       String? brand_intro,
       String? brand_origin,
@@ -111,8 +111,6 @@ abstract class $PoodBrandCopyWith<$Res> {
       int? idx,
       String? updatetime,
       int? pet_idx});
-
-  $GoodsImageCopyWith<$Res>? get image;
 }
 
 /// @nodoc
@@ -150,7 +148,7 @@ class _$PoodBrandCopyWithImpl<$Res> implements $PoodBrandCopyWith<$Res> {
       image: image == freezed
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
-              as GoodsImage?,
+              as List<GoodsImage>?,
       recordbirth: recordbirth == freezed
           ? _value.recordbirth
           : recordbirth // ignore: cast_nullable_to_non_nullable
@@ -209,17 +207,6 @@ class _$PoodBrandCopyWithImpl<$Res> implements $PoodBrandCopyWith<$Res> {
               as int?,
     ));
   }
-
-  @override
-  $GoodsImageCopyWith<$Res>? get image {
-    if (_value.image == null) {
-      return null;
-    }
-
-    return $GoodsImageCopyWith<$Res>(_value.image!, (value) {
-      return _then(_value.copyWith(image: value));
-    });
-  }
 }
 
 /// @nodoc
@@ -230,7 +217,7 @@ abstract class _$PoodBrandCopyWith<$Res> implements $PoodBrandCopyWith<$Res> {
   @override
   $Res call(
       {String? brand_phone,
-      GoodsImage? image,
+      List<GoodsImage>? image,
       String? recordbirth,
       String? brand_intro,
       String? brand_origin,
@@ -245,9 +232,6 @@ abstract class _$PoodBrandCopyWith<$Res> implements $PoodBrandCopyWith<$Res> {
       int? idx,
       String? updatetime,
       int? pet_idx});
-
-  @override
-  $GoodsImageCopyWith<$Res>? get image;
 }
 
 /// @nodoc
@@ -286,7 +270,7 @@ class __$PoodBrandCopyWithImpl<$Res> extends _$PoodBrandCopyWithImpl<$Res>
       image: image == freezed
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
-              as GoodsImage?,
+              as List<GoodsImage>?,
       recordbirth: recordbirth == freezed
           ? _value.recordbirth
           : recordbirth // ignore: cast_nullable_to_non_nullable
@@ -374,7 +358,7 @@ class _$_PoodBrand implements _PoodBrand {
   @override
   final String? brand_phone;
   @override
-  final GoodsImage? image;
+  final List<GoodsImage>? image;
   @override
   final String? recordbirth;
   @override
@@ -494,7 +478,7 @@ class _$_PoodBrand implements _PoodBrand {
 abstract class _PoodBrand implements PoodBrand {
   factory _PoodBrand(
       {String? brand_phone,
-      GoodsImage? image,
+      List<GoodsImage>? image,
       String? recordbirth,
       String? brand_intro,
       String? brand_origin,
@@ -516,7 +500,7 @@ abstract class _PoodBrand implements PoodBrand {
   @override
   String? get brand_phone => throw _privateConstructorUsedError;
   @override
-  GoodsImage? get image => throw _privateConstructorUsedError;
+  List<GoodsImage>? get image => throw _privateConstructorUsedError;
   @override
   String? get recordbirth => throw _privateConstructorUsedError;
   @override

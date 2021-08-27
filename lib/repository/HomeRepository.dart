@@ -11,7 +11,6 @@ class HomeRepository extends BaseRepository {
 
   Future<void> getHomeData() async {
     var response = await dio.get(sprintf(Urls.HOME_MAIN, [1]));
-    print("responseresponseresponseresponseresponseresponse : $response");
     if (Params.resultCheck(response)) {
 
     } else {

@@ -91,8 +91,8 @@ const $GoodsModel = _$GoodsModelTearOff();
 
 /// @nodoc
 mixin _$GoodsModel {
-  int? get coupon_apply =>
-      throw _privateConstructorUsedError; //coupon_apply = 0 : 쿠폰 적용 가능, 1 : 쿠폰 적용 불가능, 쿠폰 적용가능한 제품인지 아닌지 체큰
+//coupon_apply = 0 : 쿠폰 적용 가능, 1 : 쿠폰 적용 불가능, 쿠폰 적용가능한 제품인지 아닌지 체크
+  int? get coupon_apply => throw _privateConstructorUsedError;
   List<ProductModel>? get product => throw _privateConstructorUsedError;
   List<GoodsImage>? get main_image => throw _privateConstructorUsedError;
   List<GoodsImage>? get goods_image => throw _privateConstructorUsedError;
@@ -555,9 +555,9 @@ class _$_GoodsModel implements _GoodsModel {
   factory _$_GoodsModel.fromJson(Map<String, dynamic> json) =>
       _$_$_GoodsModelFromJson(json);
 
-  @override
+  @override //coupon_apply = 0 : 쿠폰 적용 가능, 1 : 쿠폰 적용 불가능, 쿠폰 적용가능한 제품인지 아닌지 체크
   final int? coupon_apply;
-  @override //coupon_apply = 0 : 쿠폰 적용 가능, 1 : 쿠폰 적용 불가능, 쿠폰 적용가능한 제품인지 아닌지 체큰
+  @override
   final List<ProductModel>? product;
   @override
   final List<GoodsImage>? main_image;
@@ -771,9 +771,9 @@ abstract class _GoodsModel implements GoodsModel {
   factory _GoodsModel.fromJson(Map<String, dynamic> json) =
       _$_GoodsModel.fromJson;
 
-  @override
+  @override //coupon_apply = 0 : 쿠폰 적용 가능, 1 : 쿠폰 적용 불가능, 쿠폰 적용가능한 제품인지 아닌지 체크
   int? get coupon_apply => throw _privateConstructorUsedError;
-  @override //coupon_apply = 0 : 쿠폰 적용 가능, 1 : 쿠폰 적용 불가능, 쿠폰 적용가능한 제품인지 아닌지 체큰
+  @override
   List<ProductModel>? get product => throw _privateConstructorUsedError;
   @override
   List<GoodsImage>? get main_image => throw _privateConstructorUsedError;
