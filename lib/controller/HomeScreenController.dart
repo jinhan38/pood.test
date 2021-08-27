@@ -1,7 +1,9 @@
 import 'package:get/get.dart';
 import 'package:pood/controller/base/LoadingControl.dart';
 import 'package:pood/data/model/cart/cartAddInfo/CartAddInfo.dart';
+import 'package:pood/data/model/category/field/Field.dart';
 import 'package:pood/interface/LoadingControlInterface.dart';
+import 'package:pood/resource/Params.dart';
 
 import 'base/BaseController.dart';
 
@@ -23,7 +25,13 @@ class HomeScreenController extends BaseController
       loaded.value = false;
       lc.workCompleteCount = 4;
       lc.currentCount = 0;
-      var testData = await appRepository.goodsRepository.addReviewDelete([151]);
+      List<Field> fieldList = [
+        Field(key: "ct_idx", value: "0"),
+        Field(key: "ct_sub_idx", value: "all"),
+      ];
+      var testData = await appRepository.homeRepository
+          .getCategoryDetailListData(
+              field: fieldList, pageNum: 1, sort_type: Params.SORT_TYPE_RECENTLY);
       print("testData : $testData");
 
       lc.updateWorkCount();

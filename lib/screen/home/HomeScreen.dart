@@ -4,7 +4,6 @@ import 'package:pood/controller/HomeScreenController.dart';
 import 'package:pood/controller/base/BaseController.dart';
 
 
-
 class HomeScreen extends GetView<HomeScreenController> {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -46,7 +45,7 @@ class HomeScreen extends GetView<HomeScreenController> {
       ElevatedButton(
           onPressed: () {
             var response =
-                controller.appRepository.cartRepository.getCartInfoList();
+            controller.appRepository.cartRepository.getCartInfoList();
             print("test response : $response");
           },
           child: Text("Test 버튼")),
@@ -67,7 +66,8 @@ class HomeScreen extends GetView<HomeScreenController> {
                 title: "다이얼로그",
                 msg: "버튼 한개",
                 ok: () {
-                  BaseController.to.customSnackBar.showSnackBar("다이얼로그", "버튼 한개");
+                  BaseController.to.customSnackBar.showSnackBar(
+                      "다이얼로그", "버튼 한개");
                 });
           },
           child: Text("다이얼로그 2")),
@@ -77,10 +77,12 @@ class HomeScreen extends GetView<HomeScreenController> {
                 title: "다이얼로그",
                 msg: "버튼 두개",
                 ok: () {
-                  BaseController.to.customSnackBar.showSnackBar("다이얼로그", "OK 클릭");
+                  BaseController.to.customSnackBar.showSnackBar(
+                      "다이얼로그", "OK 클릭");
                 },
                 cancel: () {
-                  BaseController.to.customSnackBar.showSnackBar("다이얼로그", "Cancel 클릭");
+                  BaseController.to.customSnackBar.showSnackBar(
+                      "다이얼로그", "Cancel 클릭");
                 });
           },
           child: Text("다이얼로그 3")),
@@ -91,7 +93,8 @@ class HomeScreen extends GetView<HomeScreenController> {
                 msg: "에러 호출",
                 ok: () {
                   Get.back();
-                  BaseController.to.customSnackBar.showSnackBar("다이얼로그", "에러 클릭");
+                  BaseController.to.customSnackBar.showSnackBar(
+                      "다이얼로그", "에러 클릭");
                 });
           },
           child: Text("다이얼로그 error")),
@@ -102,14 +105,15 @@ class HomeScreen extends GetView<HomeScreenController> {
                 msg: "에러 호출",
                 ok: () {
                   Get.back();
-                  BaseController.to.customSnackBar.showSnackBar("다이얼로그", "에러 클릭");
+                  BaseController.to.customSnackBar.showSnackBar(
+                      "다이얼로그", "에러 클릭");
                 });
           },
           child: Text("BottomSheet")),
       Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          ElevatedButton(onPressed: (){
+          ElevatedButton(onPressed: () {
             BaseController.to.customBottomSheet.showBottomText("바텀시트", "에러");
           }, child: Text("바텀 1")),
 

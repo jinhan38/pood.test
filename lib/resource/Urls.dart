@@ -24,14 +24,15 @@ class Urls {
   static const PET_KIND_INFO = "pood/admin/pet-category/2";
 
   ///HOME
-  static const HOME_MAIN = "pood/main/2/1?pc_id=%d";
-  static const HOME_MARKETING = "pood/admin/banner/2?pc_id=%d";
+  static const HOME_MAIN = "pood/main/2/1?${Params.PC_ID}=%d";
+  static const HOME_MARKETING = "pood/admin/banner/2?${Params.PC_ID}=%d";
 
   ///CATEGORY
-  static const CATEGORY_MAIN = "pood/admin/promotion/2?pr_idx=%d";
+  static const CATEGORY_MAIN = "pood/main/2/2?${Params.PC_ID}=%d";
+  static const CATEGORY_DETAIL_LIST = "pood/order/goods/getSortedGoodsList";
 
   ///PROMOTION
-  static const PROMOTION = "pood/admin/promotion/2?pr_idx=%d";
+  static const PROMOTION = "pood/admin/promotion/2?${Params.PROMOTION_IDX}=%d";
 
   ///pet Image Upload
   static const PET_IMAGE_UPLOAD = "pood/user/pet/image/1";
@@ -41,7 +42,7 @@ class Urls {
 
   ///Friend invite info
   static const FRIEND_INVITE_INFO = "pood/user/2/3?${Params.USER_UUID}=%s";
-  static const FRIEND_INVITE_IMAGE = "pood/admin/pood-image/2?idx=7";
+  static const FRIEND_INVITE_IMAGE = "pood/admin/pood-image/2?${Params.IDX}=7";
 
   /// payment
   static const PAYMENT_TYPE = "pood/admin/payment/type/2"; //결제 타입 정보 받아오기
@@ -58,13 +59,13 @@ class Urls {
   static const CART_QUANTITY_MODIFY = "pood/user/basket/4"; //장바구니 수량 수정
 
   ///바로구매 취소
-  static const CANCEL_BUY_NOW = "pood/payment/cancel/buy-now/1?basket_idx=%s";
+  static const CANCEL_BUY_NOW = "pood/payment/cancel/buy-now/1?${Params.BASKET_IDX}=%s";
 
   ///굿즈
   static const GOODS_DATA = "pood/order/goods/2/1/1";
 
   ///이벤트
-  static const EVENT_DETAIL = "pood/event-detail/2?idx=%d";
+  static const EVENT_DETAIL = "pood/event-detail/2?${Params.IDX}=%d";
 
   ///찜하기
   static const CHECK_FAVORITE = "pood/user/wish/2"; //찜했는지 확인
@@ -73,7 +74,7 @@ class Urls {
   static const FAVORITE_LIST = "pood/user/wish/2/1?${Params.USER_UUID}=%s"; //찜한 굿즈 목록
 
   ///브랜드
-  static const BRAND_DETAIL_INFO = "pood/admin/brand/2?idx=%s"; //브랜드 상세 정보
+  static const BRAND_DETAIL_INFO = "pood/admin/brand/2?${Params.IDX}=%s"; //브랜드 상세 정보
 
 
   ///리뷰

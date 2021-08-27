@@ -31,6 +31,8 @@ dependencies:
   fluttertoast: ^8.0.8
   sprintf: ^6.0.0
   dio: ^4.0.0
+  dots_indicator: ^2.0.0
+  smooth_page_indicator: ^0.2.3
   intl: ^0.17.0
   freezed_annotation:
   freezed:

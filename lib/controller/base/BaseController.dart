@@ -12,11 +12,12 @@ class BaseController extends GetxController {
 
   late AppRepository appRepository = AppRepository();
 
+
+
   UserInfo userInfo =
       UserInfo(user_uuid: "b8832efb-80bc-474d-8a98-2b09c509fcba");
 
   RxInt pc_id = 0.obs;
-
   RxBool error = false.obs;
   RxString errorMsg = "".obs;
 

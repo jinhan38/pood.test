@@ -8,6 +8,7 @@ class Params {
   }
 
   static const RESULT = "result";
+  static const DATA = "data";
   static const headerToken = "token";
   static const headerUuid = "useruuid";
   static const USER_UUID = "user_uuid";
@@ -15,6 +16,7 @@ class Params {
   static const MSG = "msg";
   static const URL = "url";
   static const PC_IDX = "pc_idx";
+  static const PC_ID = "pc_id";
   static const KEYWORD = "keyword";
   static const IDX = "idx";
   static const QUANTITY = "qty";
@@ -30,6 +32,16 @@ class Params {
   static const PAGE_SIZE = "page_size";
   static const PAGE_NUMBER = "page_number";
   static const REVIEW_IDX = "review_idx";
+  static const PROMOTION_IDX = "pr_idx";
+
+
+
+
+  ///필터
+  static const SORT_TYPE = "sort_type"; //굿즈 리스트 필터 타입
+  static const SORT_TYPE_RECENTLY = "recently"; //등록 최신순
+  static const SORT_TYPE_PRICE_HIGH = "priceHigh"; //가격 높은순
+  static const SORT_TYPE_PRICE_LOW = "priceLow"; //가격 낮은순
 
 
 }
