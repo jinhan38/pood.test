@@ -33,6 +33,7 @@ class Params {
   static const PAGE_NUMBER = "page_number";
   static const REVIEW_IDX = "review_idx";
   static const PROMOTION_IDX = "pr_idx";
+  static const INITIAL_POSITION = "initialPosition";
 
 
 

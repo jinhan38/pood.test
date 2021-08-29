@@ -16,7 +16,10 @@ void initService() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
     // var mode = MediaQuery.of(context).platformBrightness;
+    // NavigationScreenController.to.changeTheme(mode ==Brightness.light);
+
     return GetMaterialApp(
     title: 'Pood',
     // theme: mode == Brightness.light ? ThemeData.light() : ThemeData.dark(),

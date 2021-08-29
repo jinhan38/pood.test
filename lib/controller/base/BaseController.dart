@@ -11,8 +11,7 @@ class BaseController extends GetxController {
   static BaseController get to => Get.find();
 
   late AppRepository appRepository = AppRepository();
-
-
+  late final Size size;
 
   UserInfo userInfo =
       UserInfo(user_uuid: "b8832efb-80bc-474d-8a98-2b09c509fcba");
@@ -20,6 +19,7 @@ class BaseController extends GetxController {
   RxInt pc_id = 0.obs;
   RxBool error = false.obs;
   RxString errorMsg = "".obs;
+  RxInt brightMode = 0.obs;
 
   var customDialog = CustomDialog();
   var customBottomSheet = CustomBottomSheet();
@@ -33,6 +33,4 @@ class BaseController extends GetxController {
   changeTheme(bool mode) {
     Get.changeTheme(mode ? ThemeData.light() : ThemeData.dark());
   }
-
-
 }

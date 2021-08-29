@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pood/animation/coffee/Coffee.dart';
+import 'package:pood/controller/base/BaseController.dart';
 
 class CoffeeConceptList extends StatefulWidget {
   @override
@@ -36,7 +37,7 @@ class _CoffeeConceptListState extends State<CoffeeConceptList> {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -47,8 +48,8 @@ class _CoffeeConceptListState extends State<CoffeeConceptList> {
           Positioned(
               left: 20,
               right: 20,
-              bottom: -size.height / 2 * 0.22,
-              height: size.height * 0.3,
+              bottom: -BaseController.to.size.height / 2 * 0.22,
+              height: BaseController.to.size.height * 0.3,
               child: DecoratedBox(
                 decoration: BoxDecoration(shape: BoxShape.circle, boxShadow: [
                   BoxShadow(
@@ -74,7 +75,7 @@ class _CoffeeConceptListState extends State<CoffeeConceptList> {
                   final result = _currentPage - index + 1;
 
                   final value = -0.4 * result + 1;
-                  final translate = size.height / 2.6 * (1 - value).abs();
+                  final translate = BaseController.to.size.height / 2.6 * (1 - value).abs();
                   final opacity = value.clamp(0.0, 1.0);
                   // 2 -> 0.2
                   // 1 -> 0.6

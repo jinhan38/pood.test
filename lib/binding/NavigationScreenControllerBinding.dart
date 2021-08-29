@@ -8,9 +8,6 @@ class NavigationScreenControllerBinding extends BaseBinding {
   @override
   void dependencies() {
     Get.lazyPut(() => NavigationScreenController());
-    // Get.lazyPut<NavigationScreenController>(
-    //         () => NavigationScreenController());
-
   }
 
 }

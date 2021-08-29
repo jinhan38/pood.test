@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pood/controller/NavigationScreenController.dart';
+import 'package:pood/controller/base/BaseController.dart';
 import 'package:pood/router/RoutePage.dart';
 import 'package:pood/widgets/base/BaseAppBar.dart';
 import 'package:pood/widgets/pageView/imagePageView/CustomImagePageView.dart';
@@ -12,16 +13,20 @@ class NavigationScreen extends StatefulWidget {
 }
 
 class _NavigationScreenState extends State<NavigationScreen> {
+  var checkLate = false;
+
   @override
   Widget build(BuildContext context) {
+    if (!checkLate) {
+      BaseController.to.size = MediaQuery.of(context).size;
+      checkLate = true;
+    }
+
     return Scaffold(
       appBar: BaseAppBar(),
       body: bodyWidget(),
     );
   }
-
-  final imageList =
-      List.generate(4, (index) => 'assets/coffee_${index + 1}.jpg');
 
   Widget bodyWidget() {
     return Container(
@@ -39,10 +44,17 @@ class _NavigationScreenState extends State<NavigationScreen> {
                   RoutePage.movePage(RoutePage.COFFEE);
                 },
                 child: Text("Animation")),
-            CustomImagePageView(
-                mWidth: MediaQuery.of(context).size.width * 0.8,
-                mHeight: MediaQuery.of(context).size.height / 2,
-                imageList: this.imageList),
+            ElevatedButton(
+                onPressed: () {
+                  RoutePage.movePage(RoutePage.PAGE_VIEW_TEST);
+                },
+                child: Text("pageViewTest")),
+            ElevatedButton(
+                onPressed: () {
+                  RoutePage.movePage(RoutePage.CARD_SCROLL);
+                },
+                child: Text("CARD_SCROLL")),
+
           ],
         ),
       ),
