@@ -1,5 +1,3 @@
-
-
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'Field.freezed.dart';
@@ -15,4 +13,3 @@ class Field with _$Field {
   }) = _Field;
 
 }
-

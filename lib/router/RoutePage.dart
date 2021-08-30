@@ -8,6 +8,7 @@ import 'package:pood/screen/ScrollCard/ScrollCardScreen.dart';
 import 'package:pood/screen/home/HomeScreen.dart';
 import 'package:pood/screen/navigation/NavigationScreen.dart';
 import 'package:pood/screen/pageViewTest/PageViewTestScreen.dart';
+import 'package:pood/screen/scrollTest/ScrollTestScreen.dart';
 import 'package:pood/widgets/scroll/CardScrollViewWidget.dart';
 
 
@@ -53,6 +54,12 @@ class RoutePage {
       // transition: Transition.rightToLeft,
       // binding: ImageZoomScreenControllerBinding(),
     ),
+    GetPage(
+      name: TEST_SCROLL,
+      page: () => ScrollTestScreen(),
+      // transition: Transition.rightToLeft,
+      // binding: ImageZoomScreenControllerBinding(),
+    ),
   ];
 
   static const String NAVIGATION_ROUTE = "/navigation";
@@ -60,6 +67,7 @@ class RoutePage {
   static const String IMAGE_ZOOM_SCREEN_ROUTE = "/imageZoomScreen";
   static const String PAGE_VIEW_TEST = "/pageViewTest";
   static const String CARD_SCROLL = "/cardScroll";
+  static const String TEST_SCROLL = "/testScroll";
   static const String COFFEE = "/coffee";
 
 }

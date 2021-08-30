@@ -3,6 +3,7 @@ import 'package:pood/controller/NavigationScreenController.dart';
 import 'package:pood/controller/base/BaseController.dart';
 import 'package:pood/router/RoutePage.dart';
 import 'package:pood/widgets/base/BaseAppBar.dart';
+import 'package:pood/widgets/button/CustomButton.dart';
 import 'package:pood/widgets/pageView/imagePageView/CustomImagePageView.dart';
 
 class NavigationScreen extends StatefulWidget {
@@ -54,7 +55,14 @@ class _NavigationScreenState extends State<NavigationScreen> {
                   RoutePage.movePage(RoutePage.CARD_SCROLL);
                 },
                 child: Text("CARD_SCROLL")),
-
+            ElevatedButton(
+                onPressed: () {
+                  RoutePage.movePage(RoutePage.TEST_SCROLL);
+                },
+                child: Text("TEST_SCROLL")),
+            DefaultButton(() {
+              BaseController.to.customSnackBar.showSnackBar("디폴트버튼", "클릭");
+            }, "디폴트 버튼"),
           ],
         ),
       ),
